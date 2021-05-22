@@ -6,11 +6,20 @@ from SortAlgorithms import bubbleSort,mainQuickSort,heapSort
 class AlgorithmPerformance:
     def invoke(self):
         randomlist = []
-        for i in range(0, 180000):
+        randomlist1 = []
+        randomlist2 = []
+        for i in range(0, 50000):
             n = random.randint(1, 30)
-        randomlist.append(n)
+            randomlist.append(n)
+            randomlist1.append(n)
+            randomlist2.append(n);
+
         sortedList = sorted(randomlist)
-        reverseSorted = list(reversed(randomlist))
+        sortedList1 = sorted(randomlist1)
+        sortedList2 = sorted(randomlist2)
+        reverseSorted = list(reversed(sortedList))
+        reverseSorted1 = list(reversed(sortedList1))
+        reverseSorted2 = list(reversed(sortedList2))
         randomBubbleSortTime = 0;
         randomQuickSortTime =0;
         randomHeapSortTime=0;
@@ -26,16 +35,16 @@ class AlgorithmPerformance:
         for i in range(iteration):
 
             randomBubbleSortTime += bubbleSort(randomlist)
-            randomQuickSortTime += mainQuickSort(randomlist)
-            randomHeapSortTime += heapSort(randomlist)
+            randomQuickSortTime += mainQuickSort(randomlist1)
+            randomHeapSortTime += heapSort(randomlist2)
 
             sortedNumbersBubbleTime += bubbleSort(sortedList)
-            sortedQuickSortTime += mainQuickSort(sortedList)
-            sortedHeapSortTime += heapSort(sortedList)
+            sortedQuickSortTime += mainQuickSort(sortedList1)
+            sortedHeapSortTime += heapSort(sortedList2)
 
             reversedSortedNumbersBubbleTime+=bubbleSort(reverseSorted)
-            reversedSortedQuickSortTime+=mainQuickSort(reverseSorted)
-            reverseSortedHeapSortTime+=heapSort(reverseSorted)
+            reversedSortedQuickSortTime+=mainQuickSort(reverseSorted1)
+            reverseSortedHeapSortTime+=heapSort(reverseSorted2)
 
         print(str("BubbleSort with random numbers: ") + str("{0:.10f}".format(randomBubbleSortTime / iteration)))
         print(str("QuickSort with random numbers: ") + str("{0:.10f}".format(randomQuickSortTime / iteration)))

@@ -12,7 +12,7 @@ class PerformanceTest:
         randomlist = []
         for i in range(0, 500):
             n = random.randint(1, 50)
-        randomlist.append(n)
+            randomlist.append(n)
         randomDict = {
             'randomNums': randomlist,
             'sortedNums': sorted(randomlist),
